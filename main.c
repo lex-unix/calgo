@@ -25,8 +25,6 @@ void merge(int arr[], int p, int q, int r) {
 	int nr = r - q;
 	int arr_l[nl];
 	int arr_r[nr];
-	printf("p=%d, q=%d, r=%d\n", p, q, r);
-	printf("nl=%d\n", nl);
 
 	for (int i = 0; i < nl; ++i) {
 		arr_l[i] = arr[p + i];
