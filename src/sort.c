@@ -1,12 +1,4 @@
-#include <stdio.h>
-
-void print_array(int *arr, int n) {
-	printf("array: ");
-	for (int i = 0; i < n; ++i) {
-		printf("%d ", arr[i]);
-	}
-	printf("\n");
-}
+#include <sort.h>
 
 void insertion_sort(int arr[], int n) {
 	for (int i = 1; i < n; ++i) {
@@ -18,6 +10,17 @@ void insertion_sort(int arr[], int n) {
 		}
 		arr[j + 1] = key;
 	}
+}
+
+void merge_sort(int arr[], int p, int r) {
+	if (p >= r) {
+		return;
+	}
+
+	int q = (p + r) / 2;
+	merge_sort(arr, p, q);
+	merge_sort(arr, q + 1, r);
+	merge(arr, p, q, r);
 }
 
 void merge(int arr[], int p, int q, int r) {
@@ -58,24 +61,4 @@ void merge(int arr[], int p, int q, int r) {
 		j++;
 		k++;
 	}
-}
-
-void merge_sort(int arr[], int p, int r) {
-	if (p >= r) {
-		return;
-	}
-
-	int q = (p + r) / 2;
-	merge_sort(arr, p, q);
-	merge_sort(arr, q + 1, r);
-	merge(arr, p, q, r);
-}
-
-int main(void) {
-	int arr[] = {5, 2, 6, 39, 11, 20, 9, 1, 6};
-	size_t n = sizeof(arr) / sizeof(arr[0]);
-	print_array(arr, n);
-	merge_sort(arr, 0, n - 1);
-	print_array(arr, n);
-	return 0;
 }

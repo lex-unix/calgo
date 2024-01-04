@@ -1,4 +1,9 @@
+.cache
+
 # ---- C ----
+compile_commands.json
+/bin
+
 # Prerequisites
 *.d
 
