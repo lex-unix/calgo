@@ -1,5 +1,11 @@
 #include <sort.h>
 
+void exchange(int *arr, int i, int j) {
+	int tmp = arr[i];
+	arr[i] = arr[j];
+	arr[j] = tmp;
+}
+
 void insertion_sort(int arr[], int n) {
 	for (int i = 1; i < n; ++i) {
 		int key = arr[i];
@@ -43,23 +49,23 @@ void merge(int arr[], int p, int q, int r) {
 	while (i < nl && j < nr) {
 		if (arr_l[i] <= arr_r[j]) {
 			arr[k] = arr_l[i];
-			i++;
+			++i;
 		} else {
 			arr[k] = arr_r[j];
-			j++;
+			++j;
 		}
-		k++;
+		++k;
 	}
 
 	while (i < nl) {
 		arr[k] = arr_l[i];
-		i++;
-		k++;
+		++i;
+		++k;
 	}
 	while (j < nr) {
 		arr[k] = arr_r[j];
-		j++;
-		k++;
+		++j;
+		++k;
 	}
 }
 
@@ -91,9 +97,7 @@ void max_heapify(int *arr, int i, int heap_size) {
 	}
 
 	if (largest != i) {
-		int tmp = arr[i];
-		arr[i] = arr[largest];
-		arr[largest] = tmp;
+		exchange(arr, i, largest);
 		max_heapify(arr, largest, heap_size);
 	}
 }
@@ -107,9 +111,7 @@ void build_max_heap(int *arr, int heap_size) {
 void heapsort(int *arr, int heap_size) {
 	build_max_heap(arr, heap_size);
 	for (int i = heap_size - 1; i >= 1; --i) {
-		int tmp = arr[i];
-		arr[i] = arr[0];
-		arr[0] = tmp;
+		exchange(arr, i, 0);
 		heap_size--;
 		max_heapify(arr, 0, heap_size);
 	}
