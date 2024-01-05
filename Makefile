@@ -20,5 +20,8 @@ clean:
 	@echo " Cleaning...";
 	@echo " $(RM) -r $(BUILDDIR) $(TARGET)"; $(RM) -r $(BUILDDIR) $(TARGET)
 
+run:
+	@./bin/run
+
 .PHONY: clean
 
