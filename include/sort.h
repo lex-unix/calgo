@@ -16,4 +16,7 @@ void heap_sort(int arr[], int heap_size);
 void quicksort(int arr[], int p, int r);
 int quicksort_partion(int arr[], int p, int r);
 
+void randomized_quicksort(int arr[], int p, int r);
+int randomized_quicksort_partion(int arr[], int p, int r);
+
 #endif

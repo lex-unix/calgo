@@ -1,9 +1,17 @@
 #include <sort.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
 
 void exchange(int *arr, int i, int j) {
 	int tmp = arr[i];
 	arr[i] = arr[j];
 	arr[j] = tmp;
+}
+
+int randint(int a, int b) {
+	srand(time(NULL));
+	return (rand() % (b - a + 1)) + a;
 }
 
 void insertion_sort(int arr[], int n) {
@@ -137,4 +145,20 @@ int quicksort_partion(int *arr, int p, int r) {
 	}
 	exchange(arr, i + 1, r);
 	return i + 1;
+}
+
+void randomized_quicksort(int *arr, int p, int r) {
+	if (p >= r) {
+		return;
+	}
+
+	int q = randomized_quicksort_partion(arr, p, r);
+	randomized_quicksort(arr, p, q - 1);
+	randomized_quicksort(arr, q + 1, r);
+}
+
+int randomized_quicksort_partion(int *arr, int p, int r) {
+	int i = randint(p, r);
+	exchange(arr, r, i);
+	return quicksort_partion(arr, p, r);
 }
