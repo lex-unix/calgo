@@ -11,7 +11,7 @@ int heap_left(int i);
 int heap_right(int i);
 void max_heapify(int arr[], int i, int heap_size);
 void build_max_heap(int arr[], int heap_size);
-void heapsort(int arr[], int heap_size);
+void heap_sort(int arr[], int heap_size);
 
 void quicksort(int arr[], int p, int r);
 int quicksort_partion(int arr[], int p, int r);

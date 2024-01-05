@@ -108,7 +108,7 @@ void build_max_heap(int *arr, int heap_size) {
 	}
 }
 
-void heapsort(int *arr, int heap_size) {
+void heap_sort(int *arr, int heap_size) {
 	build_max_heap(arr, heap_size);
 	for (int i = heap_size - 1; i >= 1; --i) {
 		exchange(arr, i, 0);
