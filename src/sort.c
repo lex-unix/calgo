@@ -116,3 +116,25 @@ void heapsort(int *arr, int heap_size) {
 		max_heapify(arr, 0, heap_size);
 	}
 }
+
+void quicksort(int *arr, int p, int r) {
+	if (p >= r) {
+		return;
+	}
+	int q = quicksort_partion(arr, p, r);
+	quicksort(arr, p, q - 1);
+	quicksort(arr, q + 1, r);
+}
+
+int quicksort_partion(int *arr, int p, int r) {
+	int x = arr[r];
+	int i = p - 1;
+	for (int j = p; j < r; ++j) {
+		if (arr[j] <= x) {
+			++i;
+			exchange(arr, i, j);
+		}
+	}
+	exchange(arr, i + 1, r);
+	return i + 1;
+}
