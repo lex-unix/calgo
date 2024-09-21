@@ -56,24 +56,17 @@ void merge(int arr[], int p, int q, int r) {
 
 	while (i < nl && j < nr) {
 		if (arr_l[i] <= arr_r[j]) {
-			arr[k] = arr_l[i];
-			++i;
+			arr[k++] = arr_l[i++];
 		} else {
-			arr[k] = arr_r[j];
-			++j;
+			arr[k++] = arr_r[j++];
 		}
-		++k;
 	}
 
 	while (i < nl) {
-		arr[k] = arr_l[i];
-		++i;
-		++k;
+		arr[k++] = arr_l[i++];
 	}
 	while (j < nr) {
-		arr[k] = arr_r[j];
-		++j;
-		++k;
+		arr[k++] = arr_r[j++];
 	}
 }
 
